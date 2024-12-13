@@ -1,6 +1,9 @@
 import React from "react";
+import { NavLink, useNavigate } from "react-router";
 
 const Hero = () => {
+  //   const navigate = useNavigate();
+
   return (
     <div className="">
       <div className="mx-auto h-full px-4 py-20 md:py-10 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
@@ -35,9 +38,12 @@ const Hero = () => {
               </p>
             </div>
             <div className="mt-10 flex justify-center items-center md:flex-row">
-              <button className="bg-blue-600 p-4 rounded-lg text-sky-100 font-semibold text-lg">
+              <NavLink
+                to="/auth"
+                className="bg-blue-600 p-4 rounded-lg text-sky-100 font-semibold text-lg"
+              >
                 Get Started Today
-              </button>
+              </NavLink>
             </div>
           </div>
           <div className="relative hidden lg:ml-32 lg:block lg:w-1/2">

@@ -1,5 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google";
 import React from "react";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   return (
@@ -25,7 +26,7 @@ const Navbar = () => {
             />
           </svg>
         </span>
-        AuraHealth
+        <NavLink to="/">AuraHealth</NavLink>
       </a>
       <input type="checkbox" className="peer hidden" id="navbar-open" />
       <label className="absolute top-5 right-7 cursor-pointer md:hidden">

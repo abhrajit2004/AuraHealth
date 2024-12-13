@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { FcGoogle } from "react-icons/fc";
 
 const GoogleSignin = () => {
   const [user, setUser] = useState(null);
@@ -60,15 +61,23 @@ const GoogleSignin = () => {
         </div>
       ) : (
         <div className="my-4 flex flex-col items-center">
-          <h2 className="text-4xl text-center font-bold">
-            Get Started with AuraHealth today!
+          <h2 className="text-4xl text-center font-light">
+            Signup to Get Started with AuraHealth today!
           </h2>
+
           <button
             className="bg-slate-800 text-white p-2 rounded-md my-4"
             onClick={login}
           >
-            Sign in with Google
+            <FcGoogle className="text-2xl inline mx-2" />
+            {"  "} Sign in with Google
           </button>
+
+          <img
+            src="https://plus.unsplash.com/premium_vector-1727145436438-5c17ea18923a?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="auth-image"
+            className=" object-contain w-1/2 rounded-2xl my-4"
+          />
         </div>
       )}
     </div>
