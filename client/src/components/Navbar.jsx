@@ -1,8 +1,10 @@
 import { GoogleLogin } from "@react-oauth/google";
 import React from "react";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     // <header className=" sticky flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 text-blue-900 md:mx-auto md:flex-row md:items-center">
     <header className="sticky top-0 z-10 flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 text-blue-900 md:mx-auto md:flex-row md:items-center">
@@ -51,17 +53,31 @@ const Navbar = () => {
         className="flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all peer-checked:mt-8 peer-checked:max-h-56 md:ml-24 md:max-h-full md:flex-row md:items-start"
       >
         <ul className="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
-          <li className="font-bold md:mr-12">
-            <a href="#">Featured</a>
+          <li
+            className={`${location.pathname === "/" && "font-bold"} md:mr-12`}
+          >
+            <NavLink to="/">Featured</NavLink>
           </li>
-          <li className="md:mr-12">
-            <a href="#">Services</a>
+          <li
+            className={`${
+              location.pathname === "/services" && "font-bold"
+            } md:mr-12`}
+          >
+            <NavLink to="/services">Services</NavLink>
           </li>
-          <li className="md:mr-12">
-            <a href="#">About Us</a>
+          <li
+            className={`${
+              location.pathname === "/about" && "font-bold"
+            } md:mr-12`}
+          >
+            <NavLink to="/about">About Us</NavLink>
           </li>
-          <li className="md:mr-12">
-            <a href="#">Doctors</a>
+          <li
+            className={`${
+              location.pathname === "/doctors" && "font-bold"
+            } md:mr-12`}
+          >
+            <NavLink to="/doctors">Doctors</NavLink>
           </li>
           <li className="md:mr-12">
             <button className="rounded-full border-2 border-blue-900 px-6 py-1 text-blue-900 transition-colors hover:bg-blue-900 hover:text-white">

@@ -26,6 +26,8 @@ const GoogleSignin = () => {
           }
         )
         .then((res) => {
+          console.log("PROFILE = ", res);
+
           setProfile(res.data);
         })
         .catch((err) => console.log(err));
