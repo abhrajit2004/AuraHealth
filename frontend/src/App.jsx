@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import Locator from './pages/Locator.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -31,7 +32,7 @@ const App = () => {
                 <Routes>
                   {/* Dashboard items */}
                   <Route path="" element={<Dashboard />} />
-
+                  <Route path="locator" element={<Locator/>} />
                 </Routes>
               </Layout>
             }

@@ -1,53 +1,69 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { LayoutDashboard, Calendar, UserCog, MapPin, Settings, LogOut, ScrollText } from 'lucide-react';
 
-const Sidebar = () => {
+const navItems = [
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    icon: LayoutDashboard,
+    customStyles: ""
+  },
+  {
+    path: "/dashboard/health-record",
+    name: "Health Record",
+    icon: ScrollText,
+    customStyles: ""
+  },
+  {
+    path: "/dashboard/appointments",
+    name: "Appointments",
+    icon: Calendar,
+    customStyles: ""
+  },
+  {
+    path: "/dashboard/doctors",
+    name: "Doctors",
+    icon: UserCog,
+    customStyles: ""
+  },
+  {
+    path: "/dashboard/locator",
+    name: "Nearby Facilities",
+    icon: MapPin,
+    customStyles: ""
+  },
+  {
+    path: "/dashboard/settings",
+    name: "Settings",
+    icon: Settings,
+    customStyles: ""
+  },
+  {
+    path: "/",
+    name: "Logout",
+    icon: LogOut,
+    customStyles: "text-red-700 hover:bg-red-200 mt-4"
+  }
+];
+
+const Sidebar = ({ isOpen }) => {
   return (
-    <div className="bg-blue-100 w-64 h-screen p-4 flex flex-col">
-      <div className="text-2xl font-bold mb-8">AuraHealth</div>
-      <nav>
-        <NavLink
-          to="/dashboard"
-          className="block p-2 mb-2 text-blue-700 hover:bg-blue-200 rounded"
-        >
-          Dashboard
-        </NavLink>
-        <NavLink
-          to="/dashboard/patients"
-          className="block p-2 mb-2 text-blue-700 hover:bg-blue-200 rounded"
-        >
-          Patients
-        </NavLink>
-        <NavLink
-          to="/dashboard/appointments"
-          className="block p-2 mb-2 text-blue-700 hover:bg-blue-200 rounded"
-        >
-          Appointments
-        </NavLink>
-        <NavLink
-          to="/dashboard/doctors"
-          className="block p-2 mb-2 text-blue-700 hover:bg-blue-200 rounded"
-        >
-          Doctors
-        </NavLink>
-        <NavLink
-          to="/dashboard/messages"
-          className="block p-2 mb-2 text-blue-700 hover:bg-blue-200 rounded"
-        >
-          Messages
-        </NavLink>
-        <NavLink
-          to="/dashboard/settings"
-          className="block p-2 mb-2 text-blue-700 hover:bg-blue-200 rounded"
-        >
-          Settings
-        </NavLink>
-        <NavLink
-          to="/"
-          className="block p-2 mt-4 text-red-700 hover:bg-red-200 rounded"
-        >
-          Logout
-        </NavLink>
+    <div className={`fixed bg-blue-100 ${isOpen ? 'w-64' : 'w-20'} min-h-screen p-4 flex flex-col transition-all duration-300 shadow-md`}>
+      <div className={`text-3xl font-bold mb-8 ${!isOpen && 'text-center'}`}>
+        {isOpen ? 'AuraHealth' : 'AH'}
+      </div>
+      <nav className='font-semibold text-xl'>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={`flex items-center p-2 mb-2 text-blue-700 hover:bg-blue-200 rounded-md hover:shadow-md ${item.customStyles}`}
+          >
+            <item.icon size={24} />
+            {isOpen && <span className="ml-2">{item.name}</span>}
+          </NavLink>
+        ))}
       </nav>
     </div>
   );
