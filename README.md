@@ -1,0 +1,9 @@
+## For frontend .env.local
+```
+VITE_API_KEY=YOUR_NEXHEALTH_API_KEY
+```
+## For backend .env
+```
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+MONGO_URI=YOUR_MONGODB_URI
+```
