@@ -83,9 +83,7 @@ const Appointments = ({ appointment, onClick }) => {
   }, [appointments]);
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100 p-6">
-
-
+    <div className="flex justify-center items-center bg-gray-100 p-6">
       {/* Booking Section */}
       <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
         <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">

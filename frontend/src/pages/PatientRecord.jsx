@@ -116,9 +116,9 @@ const PatientRecord = () => {
 
 
     return (
-        <div className='bg-blue-200 p-10 min-h-screen'>
+        <div className='bg-blue-200 p-10'>
             <h1 className='font-medium text-3xl'>Register Yourself</h1>
-            <div className="patientdetails bg-white min-w-[80vw] min-h-[80vh] rounded-lg mt-5 shadow-md">
+            <div className="patientdetails bg-white min-h-[80vh] rounded-lg mt-5 shadow-md">
                 <section className="filters flex py-2 px-4 gap-3">
                     <div onClick={() => setIsPrescription(false)} className="details cursor-pointer transition-all">
                         Details

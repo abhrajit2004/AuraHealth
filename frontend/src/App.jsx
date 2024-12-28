@@ -56,10 +56,8 @@ const App = () => {
       />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<PatientRecord />} />
         <Route path="/medicalshop" element={<MedicalShop />} />
         <Route path="/patientrecords/:id" element={<HealthRecords />} />
-        <Route path="/appointments" element={<Appointments onClick={joinRoom} />} />
         <Route path="/rooms" element={<div className="min-h-screen bg-gray-100 p-6">
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
             Your Appointments
@@ -87,6 +85,8 @@ const App = () => {
                 {/* Dashboard items */}
                 <Route path="" element={<Dashboard />} />
                 <Route path="locator" element={<Locator />} />
+                <Route path="appointments" element={<Appointments onClick={joinRoom} />} />
+                <Route path="health-record" element={<PatientRecord />} />
               </Routes>
             </Layout>
           }
