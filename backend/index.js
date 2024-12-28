@@ -1,12 +1,28 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require("dotenv").config();
 const express = require('express')
-const app = express()
+const http = require("http");
 const cors = require('cors')
 const port = 3000
 const connectToMongo = require('./connectdb');
+const app = express();
+const server = http.createServer(app); // Create HTTP server
+const socketIO = require("socket.io"); // Import socket.io
+const initializeSocket = require("./socket");
 
-app.use(cors())
+// Initialize socket.io on the same server
+const io = socketIO(server, {
+    cors: {
+      transports: ["websocket", "polling"],
+    },
+});
+
+app.use(
+    cors({
+      origin: "http://localhost:5173",
+      credentials: true,
+    })
+);
 
 app.use(express.json())
 
@@ -14,6 +30,7 @@ app.use(express.json())
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 connectToMongo();
+
 
 app.use('/api/v1/appointments', require('./routes/appointments.route'));
 
@@ -52,11 +69,12 @@ app.post('/getmedicines', async (req, res) => {
     res.json({ success: true, message: 'Successfully fetched the treatment!', medicines: modifiedResult });
 })
 
+initializeSocket(io);
+
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hello from a simple server!')
 })
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
-
