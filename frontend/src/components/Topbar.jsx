@@ -3,13 +3,15 @@ import { useLocation } from 'react-router-dom';
 
 const Topbar = ({ isSidebarOpen }) => {
   const location = useLocation();
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const pathNameMap = {
     'dashboard': 'Dashboard',
     'locator': 'Find Nearby Facilities',
     'appointments': 'Appointment',
     'health-record': 'Health Record',
-
+    'medicial-shop': 'Medical Shop',
+    'patient-record': 'Patient Record',
   };
 
   const getPageTitle = (pathname) => {
@@ -24,11 +26,11 @@ const Topbar = ({ isSidebarOpen }) => {
       <div className="flex items-center gap-2">
         <div className="flex items-center space-x-2">
           <img
-            src="https://i.pravatar.cc/100"
+            src={user.picture || "https://i.pravatar.cc/100"}
             alt="User Avatar"
             className="h-12 w-12 rounded-full"
           />
-          <span className='font-medium'>John Doe</span>
+          <span className='font-medium'>{user.name}</span>
         </div>
       </div>
     </div>

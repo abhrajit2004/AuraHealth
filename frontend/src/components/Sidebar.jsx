@@ -60,7 +60,20 @@ const Sidebar = ({ isOpen }) => {
         {isOpen ? 'AuraHealth' : 'AH'}
       </div>
       <nav className='font-semibold text-xl'>
-        {navItems.map((item) => (
+      {navItems.map((item) => (
+        item.name === "Logout" ? (
+          <div
+            key={item.path}
+            onClick={() => {
+              localStorage.removeItem('user');
+              window.location.href = '/';
+            }}
+            className={`flex items-center p-2 mb-2 text-blue-700 hover:bg-blue-200 rounded-md hover:shadow-md cursor-pointer ${item.customStyles}`}
+          >
+            <item.icon size={24} />
+            {isOpen && <span className="ml-2">{item.name}</span>}
+          </div>
+        ) : (
           <NavLink
             key={item.path}
             to={item.path}
@@ -69,7 +82,8 @@ const Sidebar = ({ isOpen }) => {
             <item.icon size={24} />
             {isOpen && <span className="ml-2">{item.name}</span>}
           </NavLink>
-        ))}
+        )
+      ))}
       </nav>
     </div>
   );

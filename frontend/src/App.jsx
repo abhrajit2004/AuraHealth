@@ -4,6 +4,8 @@ import Layout from './components/Layout.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Locator from './pages/Locator.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
+import GoogleSigninPage from './pages/GoogleSigninPage.jsx';
 import PatientRecord from './pages/PatientRecord.jsx';
 import HealthRecords from './pages/HealthRecords.jsx';
 import MedicalShop from './pages/MedicalShop.jsx';
@@ -58,8 +60,7 @@ const App = () => {
       />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/medicalshop" element={<MedicalShop />} />
-        <Route path="/patientrecords/:id" element={<HealthRecords />} />
+        <Route path='/auth' element={<GoogleSigninPage />} />
         <Route path="/rooms" element={<div className="min-h-screen bg-gray-100 p-6">
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
             Your Appointments
@@ -82,17 +83,19 @@ const App = () => {
         <Route
           path="/dashboard/*"
           element={
-            <Layout>
-              <Routes>
-                {/* Dashboard items */}
-                <Route path="" element={<Dashboard />} />
-                <Route path="locator" element={<Locator />} />
-                <Route path="appointments" element={<Appointments onClick={joinRoom} />} />
-                <Route path="health-record" element={<PatientRecord />} />
-                <Route path="medical-shop" element={<MedicalShop />} />
-                <Route path="patient-record/:id" element={<HealthRecords />} />
-              </Routes>
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Routes>
+                  {/* Dashboard items */}
+                  <Route path="" element={<Dashboard />} />
+                  <Route path="locator" element={<Locator />} />
+                  <Route path="appointments" element={<Appointments onClick={joinRoom} />} />
+                  <Route path="health-record" element={<PatientRecord />} />
+                  <Route path="medical-shop" element={<MedicalShop />} />
+                  <Route path="patient-record/:id" element={<HealthRecords />} />
+                </Routes>
+              </Layout>
+            </ProtectedRoute>
           }
         />
         {/* for 404 or Landing Page or stuff that is outside dashboard */}
