@@ -1,31 +1,31 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Calendar, UserCog, MapPin, Settings, LogOut, ScrollText, ShoppingBag, Hospital } from 'lucide-react';
+import { LayoutDashboard, Calendar, UserCog, MapPin, Settings, LogOut, Users, ScrollText, ShoppingBag, Hospital } from 'lucide-react';
 
 const navItems = [
   {
     path: "/dashboard",
     name: "Dashboard",
     icon: LayoutDashboard,
-    customStyles: ""
+    customStyles: ''
   },
   {
     path: "/dashboard/medical-shop",
     name: "Medical Shop",
     icon: ShoppingBag,
-    customStyles: ""
+    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ? 'hidden' : ''}`
   },
   {
     path: "/dashboard/health-record",
     name: "Health Record",
     icon: ScrollText,
-    customStyles: ""
+    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ? 'hidden' : ''}`
   },
   {
     path: "/dashboard/rooms",
     name: "Rooms",
     icon: Hospital,
-    customStyles: ""
+    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ? 'hidden' : ''}`
   },
   // {
   //   path: "/dashboard/appointments",
@@ -34,16 +34,16 @@ const navItems = [
   //   customStyles: ""
   // },
   {
-    path: "/dashboard/doctors",
-    name: "Doctors",
-    icon: UserCog,
-    customStyles: ""
+    path: "/dashboard/patients",
+    name: "Patients",
+    icon: Users,
+    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'patient' ? 'hidden' : ''}`
   },
   {
     path: "/dashboard/locator",
     name: "Nearby Facilities",
     icon: MapPin,
-    customStyles: ""
+    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ? 'hidden' : ''}`
   },
   {
     path: "/dashboard/settings",

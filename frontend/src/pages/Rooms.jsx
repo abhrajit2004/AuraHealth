@@ -24,12 +24,16 @@ const Rooms = ({appointment, onClick}) => {
             {appointment.appointmenttime}
           </p>
           <p className="text-sm text-gray-600">
+            <span className="font-medium text-gray-800">For Patient:</span>{" "}
+            {appointment.patientid}
+          </p>
+          <p className="text-sm text-gray-600">
             <span className="font-medium text-gray-800">Doctor:</span>{" "}
-            {appointment.doctor || "Not Assigned"}
+            {appointment.doctorname || "Not Assigned"}
           </p>
           <p className="text-sm text-gray-600">
             <span className="font-medium text-gray-800">Location:</span>{" "}
-            {appointment.location || "Not Provided"}
+            Aurahealth
           </p>
         </div>
         <div className="flex justify-end space-x-4 mt-4">

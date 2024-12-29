@@ -9,12 +9,12 @@ import GoogleSigninPage from './pages/GoogleSigninPage.jsx';
 import PatientRecord from './pages/PatientRecord.jsx';
 import HealthRecords from './pages/HealthRecords.jsx';
 import MedicalShop from './pages/MedicalShop.jsx';
-import Appointments from './pages/Appointments.jsx';
 import Rooms from './pages/Rooms.jsx';
 import VideoCall from './pages/VideoCall.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import AllPatients from './components/AllPatients.jsx';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -92,7 +92,7 @@ const App = () => {
                   {/* <Route path="appointments" element={<Appointments onClick={joinRoom} />} /> */}
                   <Route path="health-record" element={<PatientRecord />} />
                   <Route path="medical-shop" element={<MedicalShop />} />
-                  <Route path="patient-record/:id" element={<HealthRecords />} />
+                  <Route path="patientrecord/:id" element={<HealthRecords />} />
                   <Route path="rooms" element={<div className="min-h-screen bg-gray-100 p-6">
                     <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
                       Your Appointments
@@ -111,7 +111,7 @@ const App = () => {
                       )}
                     </div>
                   </div>} />
-                  {/* <Route path="rooms/:id" element={<VideoCall />} /> */}
+                  <Route path="patients" element={<AllPatients />} />
                 </Routes>
               </Layout>
             </ProtectedRoute>

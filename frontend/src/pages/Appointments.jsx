@@ -33,7 +33,8 @@ const Appointments = ({ appointment, onClick }) => {
 
     const raw = JSON.stringify({
       "appointmentdate": formattedDate,
-      "appointmenttime": selectedTime
+      "appointmenttime": selectedTime,
+      "doctorname" : JSON.parse(localStorage.getItem("user")).name
     });
 
     const requestOptions = {
