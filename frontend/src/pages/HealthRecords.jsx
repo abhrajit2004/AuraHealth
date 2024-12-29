@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 // demo_id 328248018, 328048057, 328276128, 328277506
 // Nexhealth id 13062
+// Location id 179498
 
 const HealthRecords = () => {
 
