@@ -1,6 +1,7 @@
 ## For frontend .env.local
 ```
 VITE_API_KEY=YOUR_NEXHEALTH_API_KEY
+VITE_API_URL=YOUR_BACKEND_URL
 ```
 ## For backend .env
 ```
