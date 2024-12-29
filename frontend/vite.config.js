@@ -14,7 +14,7 @@ export default defineConfig({
         }),
       ],
     },
-    include: ['simple-peer', 'socket.io-client'],
+    include: ['socket.io-client'],
   },
   define: {
     global: 'globalThis',
