@@ -89,6 +89,8 @@ const App = () => {
                 <Route path="locator" element={<Locator />} />
                 <Route path="appointments" element={<Appointments onClick={joinRoom} />} />
                 <Route path="health-record" element={<PatientRecord />} />
+                <Route path="medical-shop" element={<MedicalShop />} />
+                <Route path="patient-record/:id" element={<HealthRecords />} />
               </Routes>
             </Layout>
           }

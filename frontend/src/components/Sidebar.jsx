@@ -1,12 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Calendar, UserCog, MapPin, Settings, LogOut, ScrollText } from 'lucide-react';
+import { LayoutDashboard, Calendar, UserCog, MapPin, Settings, LogOut, ScrollText, ShoppingBag } from 'lucide-react';
 
 const navItems = [
   {
     path: "/dashboard",
     name: "Dashboard",
     icon: LayoutDashboard,
+    customStyles: ""
+  },
+  {
+    path: "/dashboard/medical-shop",
+    name: "Medical Shop",
+    icon: ShoppingBag,
     customStyles: ""
   },
   {
