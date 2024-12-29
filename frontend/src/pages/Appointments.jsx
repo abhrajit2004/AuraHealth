@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css"; // Import the calendar styles
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Appointments = ({ appointment, onClick }) => {
   const [appointments, setAppointments] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -41,7 +43,7 @@ const Appointments = ({ appointment, onClick }) => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:3000/api/v1/appointments/add", requestOptions)
+    fetch(`${API_URL}/api/v1/appointments/add`, requestOptions)
       .then((response) => response.json())
       .then((result) => console.log(result))
       .catch((error) => console.error(error));
@@ -60,7 +62,7 @@ const Appointments = ({ appointment, onClick }) => {
       redirect: "follow"
     };
 
-    fetch(`http://localhost:3000/api/v1/appointments/delete/${id}`, requestOptions)
+    fetch(`${API_URL}/api/v1/appointments/delete/${id}`, requestOptions)
       .then((response) => response.json())
       .then((result) => console.log(result))
       .catch((error) => console.error(error));
@@ -72,7 +74,7 @@ const Appointments = ({ appointment, onClick }) => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:3000/api/v1/appointments/all", requestOptions)
+    fetch(`${API_URL}/api/v1/appointments/all`, requestOptions)
       .then((response) => response.json())
       .then((result) => { setAppointments(result.appointments) })
       .catch((error) => console.error(error));

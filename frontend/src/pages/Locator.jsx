@@ -183,7 +183,7 @@ const Locator = () => {
 
       <div className="mb-4">
         <label htmlFor="address" className="block font-medium text-gray-700">
-          Not your correct location? Enter your place:
+          Not your correct location? Enter your place below or drag the marker on the map:
         </label>
         <div className="flex items-center gap-2">
           <input
