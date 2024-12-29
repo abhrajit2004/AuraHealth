@@ -35,7 +35,7 @@ const App = () => {
   };
 
   const joinRoom = (id) => {
-    window.open(`/rooms/${id}`, "_blank");
+    window.open(`/dashboard/rooms/${id}`, "_blank");
   };
 
 
@@ -61,7 +61,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path='/auth' element={<GoogleSigninPage />} />
-        <Route path="/rooms" element={<div className="min-h-screen bg-gray-100 p-6">
+        {/* <Route path="/rooms" element={<div className="min-h-screen bg-gray-100 p-6">
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
             Your Appointments
           </h1>
@@ -78,8 +78,8 @@ const App = () => {
               ))
             )}
           </div>
-        </div>} />
-        <Route path="/rooms/:id" element={<VideoCall />} />
+        </div>} /> */}
+        <Route path="/dashboard/rooms/:id" element={<VideoCall />} />
         <Route
           path="/dashboard/*"
           element={
@@ -87,12 +87,31 @@ const App = () => {
               <Layout>
                 <Routes>
                   {/* Dashboard items */}
-                  <Route path="" element={<Dashboard />} />
+                  <Route path="" element={<Dashboard onClick={joinRoom} />} />
                   <Route path="locator" element={<Locator />} />
-                  <Route path="appointments" element={<Appointments onClick={joinRoom} />} />
+                  {/* <Route path="appointments" element={<Appointments onClick={joinRoom} />} /> */}
                   <Route path="health-record" element={<PatientRecord />} />
                   <Route path="medical-shop" element={<MedicalShop />} />
                   <Route path="patient-record/:id" element={<HealthRecords />} />
+                  <Route path="rooms" element={<div className="min-h-screen bg-gray-100 p-6">
+                    <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
+                      Your Appointments
+                    </h1>
+                    <div className="max-w-3xl mx-auto">
+                      {appointments.length === 0 ? (
+                        <p className="text-gray-500 text-center">No appointments booked.</p>
+                      ) : (
+                        appointments.map((appointment, index) => (
+                          <Rooms
+                            key={index}
+                            appointment={appointment}
+                            onClick={joinRoom}
+                          />
+                        ))
+                      )}
+                    </div>
+                  </div>} />
+                  {/* <Route path="rooms/:id" element={<VideoCall />} /> */}
                 </Routes>
               </Layout>
             </ProtectedRoute>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Calendar, UserCog, MapPin, Settings, LogOut, ScrollText, ShoppingBag } from 'lucide-react';
+import { LayoutDashboard, Calendar, UserCog, MapPin, Settings, LogOut, ScrollText, ShoppingBag, Hospital } from 'lucide-react';
 
 const navItems = [
   {
@@ -22,11 +22,17 @@ const navItems = [
     customStyles: ""
   },
   {
-    path: "/dashboard/appointments",
-    name: "Appointments",
-    icon: Calendar,
+    path: "/dashboard/rooms",
+    name: "Rooms",
+    icon: Hospital,
     customStyles: ""
   },
+  // {
+  //   path: "/dashboard/appointments",
+  //   name: "Appointments",
+  //   icon: Calendar,
+  //   customStyles: ""
+  // },
   {
     path: "/dashboard/doctors",
     name: "Doctors",

@@ -1,10 +1,11 @@
 import { GoogleLogin } from "@react-oauth/google";
 import React from "react";
-import { NavLink, useLocation } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 
 const Navbar = () => {
   const location = useLocation();
   const user = JSON.parse(localStorage.getItem('user'));
+  const navigate = useNavigate();
 
   return (
     // <header className=" sticky flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 text-blue-900 md:mx-auto md:flex-row md:items-center">
@@ -104,12 +105,12 @@ const Navbar = () => {
             </>
           ) : (
             <li className="md:mr-12">
-              <NavLink 
-                to="/auth" 
+              <button 
+                onClick={() => navigate('/auth')}
                 className="rounded-full border-2 border-blue-900 px-6 py-1 text-blue-900 transition-colors hover:bg-blue-900 hover:text-white"
               >
                 Login
-              </NavLink>
+              </button>
             </li>
           )}
         </ul>
