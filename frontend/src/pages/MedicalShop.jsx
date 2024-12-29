@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import './Loader.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const MedicalShop = () => {
 
   const [search, setSearch] = useState("");
@@ -47,7 +49,7 @@ const MedicalShop = () => {
 
     loadRef.current.style.display = "inline-block";
 
-    fetch("http://localhost:3000/getmedicines", requestOptions)
+    fetch(`${API_URL}/getmedicines`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         const medicines = JSON.parse(result.medicines);

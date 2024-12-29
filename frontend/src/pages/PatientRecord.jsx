@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import * as pdfjsLib from 'pdfjs-dist';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 // Set the worker source URL
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
 
@@ -106,7 +108,7 @@ const PatientRecord = () => {
             redirect: "follow"
         };
 
-        fetch("http://localhost:3000/gettreatment", requestOptions)
+        fetch(`${API_URL}/gettreatment`, requestOptions)
             .then((response) => response.json())
             .then((result) => {
                 setTreatment(result.treatment);

@@ -14,6 +14,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const App = () => {
 
   const [appointments, setAppointments] = useState([]);
@@ -24,7 +26,7 @@ const App = () => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:3000/api/v1/appointments/all", requestOptions)
+    fetch(`${API_URL}/api/v1/appointments/all`, requestOptions)
       .then((response) => response.json())
       .then((result) => setAppointments(result.appointments))
       .catch((error) => console.error(error));
