@@ -111,7 +111,7 @@ const App = () => {
                       )}
                     </div>
                   </div>} />
-                  <Route path="patients" element={<AllPatients />} />
+                  <Route path="patientrecord" element={<AllPatients />} />
                 </Routes>
               </Layout>
             </ProtectedRoute>

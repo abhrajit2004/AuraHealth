@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "tailwindcss/tailwind.css"; // Assuming you're using Tailwind CSS
 
 const AllPatients = () => {
   const [patients, setPatients] = useState([]);
+  const navigate = useNavigate();
 
   const getAllPatients = () => {
     const url =
@@ -33,8 +35,8 @@ const AllPatients = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {patients.map((patient, index) => (
           <div
-            key={index}
-            className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition duration-200"
+            key={index} onClick={()=>navigate(`/dashboard/patientrecord/${patient.id}`)}
+            className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition duration-200 cursor-pointer"
           >
             <h2 className="text-xl font-semibold text-gray-800 mb-2">
               {patient.name} ( {patient.id} )

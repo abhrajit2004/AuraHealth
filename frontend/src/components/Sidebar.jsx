@@ -34,7 +34,7 @@ const navItems = [
   //   customStyles: ""
   // },
   {
-    path: "/dashboard/patients",
+    path: "/dashboard/patientrecord",
     name: "Patients",
     icon: Users,
     customStyles: `${JSON.parse(localStorage.getItem('userRole'))?.role === 'patient' ? 'hidden' : ''}`
