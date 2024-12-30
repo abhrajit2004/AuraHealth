@@ -30,7 +30,17 @@ const VideoCall = () => {
           localVideoRef.current.srcObject = localStream;
         }
 
-        peerConnectionRef.current = new RTCPeerConnection();
+        peerConnectionRef.current = new RTCPeerConnection({
+          iceServers: [
+            { urls: "stun:stun.l.google.com:19302" },
+            { urls: "stun:stun1.l.google.com:19302" },
+            {
+              urls: "turn:your-turn-server.com",
+              username: "your-username",
+              credential: "your-credential",
+            },
+          ],
+        });
         localStream.getTracks().forEach((track) =>
           peerConnectionRef.current.addTrack(track, localStream)
         );
