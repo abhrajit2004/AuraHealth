@@ -11,7 +11,7 @@ const AllPatients = () => {
       method: "GET",
       headers: {
         accept: "application/vnd.Nexhealth+json;version=2",
-        Authorization: "dXNlci00OTMtc2FuZGJveA.8Yh7fyAPokHjo2McvsnR6nE-b1aJaLYj",
+        Authorization: import.meta.env.VITE_API_KEY,
       },
     };
 
