@@ -34,7 +34,7 @@ const VideoCall = () => {
           iceServers: [
             { urls: "stun:stun.l.google.com:19302" },
             {
-              urls: "turn:relay.metered.ca:80",
+              urls: "turn:my-turn-server.mycompany.com:19403",
               username: "open",
               credential: "open",
             },
