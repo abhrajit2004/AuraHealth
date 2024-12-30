@@ -19,7 +19,10 @@ const io = socketIO(server, {
 
 app.use(
     cors({
-      origin: "http://localhost:5173",
+      origin: [
+          "http://localhost:5173",
+          "https://aura-health-eut8k5b24-shuvadipta-das-projects.vercel.app",
+      ],
       credentials: true,
     })
 );
