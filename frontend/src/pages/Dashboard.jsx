@@ -91,9 +91,9 @@ const Dashboard = ({ onClick }) => {
   return (
     <div className="flex flex-col items-center bg-gray-100 min-h-screen p-6 space-y-8">
       {/* Dashboard Section */}
-      <h2 className="text-4xl font-bold mb-4">Welcome {JSON.parse(localStorage.getItem('userRole')).role} {currentuser.name}</h2>
+      <h2 className="text-4xl font-bold mb-4">Welcome {JSON.parse(localStorage.getItem('userRole'))?.role}, {currentuser.name}</h2>
 
-      {JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ?
+      {JSON.parse(localStorage.getItem('userRole'))?.role === 'doctor' ?
         <div className="flex flex-wrap gap-6 justify-center items-start max-w-6xl w-full">
           {/* Booking Section */}
           <div className="flex-1 max-w-md bg-white shadow-lg rounded-lg p-6">
@@ -174,7 +174,7 @@ const Dashboard = ({ onClick }) => {
         </div>
         :
         <div className="p-6 flex items-center justify-center font-medium text-2xl">
-          <div className="bg-white shadow-md rounded-lg p-6 w-screen max-w-md">
+          <div className="bg-white shadow-md rounded-md p-8 w-screen max-w-xl">
             <h1 className="text-4xl font-bold text-gray-800 mb-4">Patient Details</h1>
             <p className="text-gray-600 mb-2">
               <span className="font-semibold">Name:</span> {currentuser.name}

@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
         <Topbar isSidebarOpen={isSidebarOpen} />
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className={`fixed left-[242px] top-6 z-50 bg-blue-100 p-1 rounded-full hover:bg-blue-200 transition-all duration-300 shadow-md ${isSidebarOpen ? 'left-[242px]' : 'left-[62px]'}`}
+          className={`fixed left-[242px] top-6 z-40 bg-blue-100 p-1 rounded-full hover:bg-blue-200 transition-all duration-300 shadow-md ${isSidebarOpen ? 'left-[242px]' : 'left-[62px]'}`}
         >
           {isSidebarOpen ? <PanelLeftClose size={20} /> : <PanelLeftOpen size={20} />}
         </button>
