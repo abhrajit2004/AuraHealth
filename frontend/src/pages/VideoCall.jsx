@@ -33,11 +33,10 @@ const VideoCall = () => {
         peerConnectionRef.current = new RTCPeerConnection({
           iceServers: [
             { urls: "stun:stun.l.google.com:19302" },
-            { urls: "stun:stun1.l.google.com:19302" },
             {
-              urls: "turn:your-turn-server.com",
-              username: "your-username",
-              credential: "your-credential",
+              urls: "turn:relay.metered.ca:80",
+              username: "open",
+              credential: "open",
             },
           ],
         });
