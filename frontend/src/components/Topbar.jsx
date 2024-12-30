@@ -11,7 +11,7 @@ const Topbar = ({ isSidebarOpen }) => {
     'appointments': 'Appointment',
     'health-record': 'Health Record',
     'medicial-shop': 'Medical Shop',
-    'patientrecord': 'Patient Record',
+    'patientrecords': 'Patient Records',
   };
 
   const getPageTitle = (pathname) => {

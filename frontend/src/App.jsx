@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import AllPatients from './components/AllPatients.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -111,7 +112,14 @@ const App = () => {
                       )}
                     </div>
                   </div>} />
-                  <Route path="patientrecord" element={<AllPatients />} />
+                  <Route
+                    path="patientrecords"
+                    element={
+                      <PrivateRoute allowedRoles={['doctor']}>
+                        <AllPatients />
+                      </PrivateRoute>
+                    }
+                  />
                 </Routes>
               </Layout>
             </ProtectedRoute>

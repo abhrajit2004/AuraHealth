@@ -88,7 +88,7 @@ const PatientRecord = () => {
         fetch(url, options)
             .then(res => res.json())
             .then(json => {
-                window.location.href = `/patientrecords/${json.data.user.id}`;
+                window.location.href = `/dashboard/patientrecord/${json.data.user.id}`;
             })
             .catch(err => console.error(err));
     }
