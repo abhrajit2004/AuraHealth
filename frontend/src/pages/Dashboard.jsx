@@ -35,7 +35,7 @@ const Dashboard = ({ onClick }) => {
     const raw = JSON.stringify({
       appointmentdate: formattedDate,
       appointmenttime: selectedTime,
-      doctorname: JSON.parse(localStorage.getItem("user")).name,
+      doctorname: JSON.parse(localStorage.getItem("user")).name.toLowerCase().split(' ').join(''),
       patientid: patientid
     });
 
@@ -71,16 +71,19 @@ const Dashboard = ({ onClick }) => {
   };
 
   const getAppointments = () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+
     const requestOptions = {
       method: "GET",
-      redirect: "follow",
+      headers: myHeaders,
+      redirect: "follow"
     };
 
-    fetch(`${API_URL}/api/v1/appointments/all`, requestOptions)
+    fetch(`${API_URL}/api/v1/appointments/all/${JSON.parse(localStorage.getItem('user')).name.toLowerCase().split(' ').join('')}`, requestOptions)
       .then((response) => response.json())
-      .then((result) => {
-        setAppointments(result.appointments);
-      })
+      .then((result) =>  setAppointments(result.appointments))
       .catch((error) => console.error(error));
   };
 

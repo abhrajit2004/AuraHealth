@@ -22,14 +22,25 @@ router.post('/add', async (req, res) => {
     }
 });
 
-router.get('/all', async (req, res) => {
+router.get('/all/:doctorname', async (req, res) => {
     try {
-        const appointments = await Appointments.find();
+        const doctorname = req.params.doctorname;
+        const appointments = await Appointments.find({doctorname: doctorname});
         res.json({appointments});
     } catch (error) {
         res.status(500).json({message: "Internal Server Error"});
     }
 });
+
+router.get('/getall',async(req, res)=>{
+    try {
+        const appointments = await Appointments.find();
+        res.json({appointments});
+    } 
+    catch (error) {
+        res.status(500).json({message: "Internal Server Error"});
+    }
+})
 
 router.delete('/delete/:id', async (req, res) => {
     try{

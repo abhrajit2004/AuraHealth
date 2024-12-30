@@ -28,7 +28,7 @@ const App = () => {
       redirect: "follow"
     };
 
-    fetch(`${API_URL}/api/v1/appointments/all`, requestOptions)
+    fetch(`${API_URL}/api/v1/appointments/getall`, requestOptions)
       .then((response) => response.json())
       .then((result) => setAppointments(result.appointments))
       .catch((error) => console.error(error));
