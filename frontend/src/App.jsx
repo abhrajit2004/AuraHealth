@@ -11,7 +11,7 @@ import HealthRecords from './pages/HealthRecords.jsx';
 import MedicalShop from './pages/MedicalShop.jsx';
 import Rooms from './pages/Rooms.jsx';
 import VideoCall from './pages/VideoCall.jsx';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import AllPatients from './components/AllPatients.jsx';
@@ -22,6 +22,25 @@ const API_URL = import.meta.env.VITE_API_URL;
 const App = () => {
 
   const [appointments, setAppointments] = useState([]);
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const checkBackendConnection = async () => {
+    try {
+      const response = await fetch(`${API_URL}`);
+      if (response.ok) {
+        setIsBackendConnected(true);
+      }
+    } catch (error) {
+      toast.error('Failed to connect to the backend:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    checkBackendConnection();
+  }, []);
 
   const getAppointments = () => {
     const requestOptions = {
@@ -41,9 +60,26 @@ const App = () => {
 
 
   useEffect(() => {
-    getAppointments();
-  }, [appointments]);
+    if (isBackendConnected) {
+      getAppointments();
+    }
+  }, [isBackendConnected]);
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-black">
+        <span className='loader2'></span>
+      </div>
+    );
+  }
+
+  if (!isBackendConnected) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-black">
+        <div className="text-red-500 text-xl font-semibold">There's a server issue so please check back later. Sorry for the inconvenience :(</div>
+      </div>
+    );
+  }
 
   return (
     <>
