@@ -121,11 +121,11 @@ const PatientRecord = () => {
         <div className='bg-blue-200 p-10'>
             <h1 className='font-medium text-3xl'>Register Yourself</h1>
             <div className="patientdetails bg-white min-h-[80vh] rounded-lg mt-5 shadow-md">
-                <section className="filters flex py-2 px-4 gap-3">
-                    <div onClick={() => setIsPrescription(false)} className="details cursor-pointer transition-all">
+                <section className="filters flex py-3 px-4 gap-3">
+                    <div onClick={() => setIsPrescription(false)} className={`details cursor-pointer transition-all p-2 rounded-md font-semibold ${isPrescription === false ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}>
                         Details
                     </div>
-                    <div onClick={() => setIsPrescription(true)} className='prescription cursor-pointer transition-all'>
+                    <div onClick={() => setIsPrescription(true)} className={`prescription cursor-pointer transition-all p-2 rounded-md font-semibold ${isPrescription === true ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}>
                         Get Treatment
                     </div>
                 </section>
