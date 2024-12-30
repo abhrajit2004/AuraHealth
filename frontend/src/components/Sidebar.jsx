@@ -13,19 +13,19 @@ const navItems = [
     path: "/dashboard/medical-shop",
     name: "Medical Shop",
     icon: ShoppingBag,
-    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ? 'hidden' : ''}`
+    customStyles: `${JSON.parse(localStorage.getItem('userRole'))?.role === 'doctor' ? 'hidden' : ''}`
   },
   {
     path: "/dashboard/health-record",
     name: "Health Record",
     icon: ScrollText,
-    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ? 'hidden' : ''}`
+    customStyles: `${JSON.parse(localStorage.getItem('userRole'))?.role === 'doctor' ? 'hidden' : ''}`
   },
   {
     path: "/dashboard/rooms",
     name: "Rooms",
     icon: Hospital,
-    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ? 'hidden' : ''}`
+    customStyles: `${JSON.parse(localStorage.getItem('userRole'))?.role === 'doctor' ? 'hidden' : ''}`
   },
   // {
   //   path: "/dashboard/appointments",
@@ -37,13 +37,13 @@ const navItems = [
     path: "/dashboard/patients",
     name: "Patients",
     icon: Users,
-    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'patient' ? 'hidden' : ''}`
+    customStyles: `${JSON.parse(localStorage.getItem('userRole'))?.role === 'patient' ? 'hidden' : ''}`
   },
   {
     path: "/dashboard/locator",
     name: "Nearby Facilities",
     icon: MapPin,
-    customStyles: `${JSON.parse(localStorage.getItem('userRole')).role === 'doctor' ? 'hidden' : ''}`
+    customStyles: `${JSON.parse(localStorage.getItem('userRole'))?.role === 'doctor' ? 'hidden' : ''}`
   },
   {
     path: "/dashboard/settings",
@@ -61,7 +61,7 @@ const navItems = [
 
 const Sidebar = ({ isOpen }) => {
   return (
-    <div className={`fixed bg-blue-100 ${isOpen ? 'w-64' : 'w-20'} min-h-screen p-4 flex flex-col transition-all duration-300 shadow-md`}>
+    <div className={`fixed bg-blue-100 ${isOpen ? 'w-64' : 'w-20'} min-h-screen p-4 flex flex-col transition-all duration-300 shadow-md z-40`}>
       <div className={`text-3xl font-bold mb-8 ${!isOpen && 'text-center'}`}>
         {isOpen ? 'AuraHealth' : 'AH'}
       </div>

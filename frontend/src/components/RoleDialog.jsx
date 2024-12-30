@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const RoleDialog = () => {
   const [selectedRole, setSelectedRole] = useState("");
@@ -22,12 +23,18 @@ const RoleDialog = () => {
     localStorage.setItem("userRole", JSON.stringify(roleData));
     setSelectedRole(role);
     setShowDialog(false);
+    toast.loading("Role selected successfully! Reloading...");
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 900);
+
   };
 
   if (!showDialog) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
           Select Your Role

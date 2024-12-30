@@ -30,7 +30,7 @@ const Topbar = ({ isSidebarOpen }) => {
             alt="User Avatar"
             className="h-12 w-12 rounded-full"
           />
-          <span className='font-medium'>{user.name} ( {JSON.parse(localStorage.getItem('userRole')).role} )</span>
+          <span className='font-medium'>{user.name} ( {JSON.parse(localStorage.getItem('userRole'))?.role} )</span>
         </div>
       </div>
     </div>
