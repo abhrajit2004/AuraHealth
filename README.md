@@ -1,3 +1,4 @@
+## Disclaimer - The website may take some time to load as the backend is hosted on Render !
 ## For frontend .env.local
 ```
 VITE_API_KEY=YOUR_NEXHEALTH_API_KEY
